@@ -1,0 +1,68 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Databerry.ai - Connect custom data to large language models",
+  "logo": {
+    "dark": "/logo/dark.png",
+    "light": "/logo/light.png"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#6132A9",
+    "light": "#C69EFF",
+    "dark": "#6132A9"
+  },
+  "topbarLinks": [
+    {
+      "name": "Github",
+      "url": "https://github.com/gmpetrov/databerry"
+    },
+    {
+      "name": "Discord",
+      "url": "https://discord.gg/FSWKj49ckX"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Get Started",
+    "url": "https://databerry.ai/"
+  },
+  "anchors": [
+    {
+      "name": "Databerry API",
+      "icon": "rectangle-terminal",
+      "url": "api-reference"
+    },
+    {
+      "name": "Databerry Apps",
+      "icon": "wand-magic-sparkles",
+      "url": "apps"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Overview",
+      "pages": ["introduction", "platform"]
+    },
+    {
+      "group": "Databerry API",
+      "pages": ["api-reference/authentication"]
+    },
+    {
+      "group": "Databerry Apps",
+      "pages": ["apps/introduction", "apps/chat-site"]
+    },
+    {
+      "group": "Endpoints",
+      "pages": [
+        "api-reference/endpoint/query",
+        "api-reference/endpoint/upsert",
+        "api-reference/endpoint/update",
+        "api-reference/endpoint/delete"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/georges_petrov",
+    "discord": "https://discord.gg/FSWKj49ckX",
+    "github": "https://github.com/gmpetrov/databerry"
+  }
+}

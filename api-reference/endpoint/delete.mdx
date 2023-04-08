@@ -1,0 +1,52 @@
+---
+title: 'Delete Datasource'
+api: 'DELETE https://api.databerry.ai/delete/{datastoreId}'
+description: 'This endpoint allows you to remove a Datasource from a Datastore.'
+authMethod: 'bearer'
+---
+
+### Path
+
+<ParamField path="datastoreId" type="string" required>
+  The id of the datastore you want to access.
+</ParamField>
+
+### Body
+
+<ParamField body="id" type="string" required>
+  This is the ID of the Datasource you want to delete.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string"></ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request POST 'https://api.databerry.ai/update/<datastoreId>' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <DATASTORE_API_KEY>' \
+--data-raw '{
+    "id": "<datasourceID>",
+    "text": "Lorem Ipsum...",
+    "name": "My Document",
+    "metadata": {
+      "source" : "https://en.wikipedia.org/wiki/Lorem_ipsum",
+      "author": "John Doe",
+      "date": "2021-01-01",
+    }
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "id": "60f9b9f0-0b1a-11ec-9a03-0242ac130003"
+}
+```
+
+</ResponseExample>
