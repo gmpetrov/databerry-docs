@@ -58,6 +58,10 @@
         "api-reference/endpoint/update",
         "api-reference/endpoint/delete"
       ]
+    },
+    {
+      "group": "External Integrations",
+      "pages": ["integrations/langchain"]
     }
   ],
   "footerSocials": {
