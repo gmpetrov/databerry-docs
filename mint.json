@@ -35,6 +35,11 @@
       "name": "Databerry Apps",
       "icon": "wand-magic-sparkles",
       "url": "apps"
+    },
+    {
+      "name": "support@databerry.ai",
+      "icon": "comment-question",
+      "url": "mailto:support@databerry.ai"
     }
   ],
   "navigation": [
