@@ -1,6 +1,6 @@
 ---
 title: 'Query Datastore'
-api: 'POST https://api.databerry.ai/query/{datastoreId}'
+api: 'POST https://api.databerry.ai/datastores/query/{datastoreId}'
 description: 'This endpoint gets the most similar document fragments for a given query.'
 authMethod: 'bearer'
 ---
@@ -47,9 +47,9 @@ authMethod: 'bearer'
 <RequestExample>
 
 ```bash Example Request
-curl --location --request POST 'https://api.databerry.ai/query/<datastoreId>' \
+curl --location --request POST 'https://api.databerry.ai/datastores/query/<datastoreId>' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Bearer <DATASTORE_API_KEY>' \
+--header 'Authorization: Bearer <API_KEY>' \
 --data-raw '{
     "query": "Lorem Ipsum...",
     "topK": 5

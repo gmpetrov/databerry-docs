@@ -1,0 +1,47 @@
+---
+title: 'Query Agent'
+api: 'POST https://api.databerry.ai/agents/query/{agentId}'
+description: 'This let you query your agent for a specific query.'
+authMethod: 'bearer'
+---
+
+### Path
+
+<ParamField path="agentId" type="string" required>
+  The id of the agent you want to query.
+</ParamField>
+
+### Body
+
+<ParamField body="query" type="string" required>
+  This is the query you want to ask your agent.
+</ParamField>
+
+>
+
+### Response
+
+<ResponseField name="answer" type="string"></ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request POST 'https://api.databerry.ai/agents/query/<agentId>' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <API_KEY>' \
+--data-raw '{
+    "query": "Lorem Ipsum..."
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "answer": "Lorem upsum..."
+}
+```
+
+</ResponseExample>

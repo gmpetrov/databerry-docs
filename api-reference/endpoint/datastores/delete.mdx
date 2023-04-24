@@ -1,6 +1,6 @@
 ---
 title: 'Delete Datasource'
-api: 'DELETE https://api.databerry.ai/delete/{datastoreId}'
+api: 'DELETE https://api.databerry.ai/datastores/delete/{datastoreId}'
 description: 'This endpoint allows you to remove a Datasource from a Datastore.'
 authMethod: 'bearer'
 ---
@@ -24,9 +24,9 @@ authMethod: 'bearer'
 <RequestExample>
 
 ```bash Example Request
-curl --location --request POST 'https://api.databerry.ai/update/<datastoreId>' \
+curl --location --request POST 'https://api.databerry.ai/datastores/delete/<datastoreId>' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Bearer <DATASTORE_API_KEY>' \
+--header 'Authorization: Bearer <API_KEY>' \
 --data-raw '{
     "id": "<datasourceID>",
     "text": "Lorem Ipsum...",
