@@ -32,6 +32,11 @@
       "url": "api-reference"
     },
     {
+      "name": "ChatGPT Plugin",
+      "icon": "puzzle-piece-simple",
+      "url": "integrations"
+    },
+    {
       "name": "Databerry Apps",
       "icon": "wand-magic-sparkles",
       "url": "apps"
@@ -69,7 +74,7 @@
     },
     {
       "group": "External Integrations",
-      "pages": ["integrations/langchain"]
+      "pages": ["integrations/chatgpt-plugin", "integrations/langchain"]
     }
   ],
   "footerSocials": {
