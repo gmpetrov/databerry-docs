@@ -73,6 +73,9 @@ const { id, link } = await data.json();
 await fetch(link, {
   method: 'PUT',
   body: text,
+  headers: {
+    'Content-Type': type,
+  },
 });
 
 // Process file
