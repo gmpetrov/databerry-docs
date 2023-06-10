@@ -13,6 +13,10 @@ authMethod: 'bearer'
 
 ### Body
 
+<ParamField body="fileName" type="string">
+  File Name
+</ParamField>
+
 <ParamField body="file" type="file" required>
   File to upload
 </ParamField>
@@ -46,6 +50,8 @@ formData.append(
   }),
   fileName
 );
+
+formData.append('fileName', fileName);
 
 // Request upload link
 const res = await fetch(
