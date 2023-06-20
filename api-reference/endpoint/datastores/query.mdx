@@ -1,13 +1,13 @@
 ---
 title: 'Query Datastore'
-api: 'POST https://api.databerry.ai/datastores/query/{datastoreId}'
+api: 'POST https://api.databerry.ai/datastores/query/{datastore_id}'
 description: 'This endpoint gets the most similar document fragments for a given query.'
 authMethod: 'bearer'
 ---
 
 ### Path
 
-<ParamField path="datastoreId" type="string" required>
+<ParamField path="datastore_id" type="string" required>
   The id of the datastore you want to query.
 </ParamField>
 
@@ -24,6 +24,10 @@ authMethod: 'bearer'
 <ParamField body="filters" type="object">
   <ParamField body="custom_id" type="string">
     Filter by Custom ID
+  </ParamField>
+
+  <ParamField body="datasource_id" type="string">
+    Filter by Datasource ID
   </ParamField>
 </ParamField>
 
@@ -51,14 +55,15 @@ authMethod: 'bearer'
 <RequestExample>
 
 ```bash Example Request
-curl --location --request POST 'https://api.databerry.ai/datastores/query/<datastoreId>' \
+curl --location --request POST 'https://api.databerry.ai/datastores/query/<datastore_id>' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <API_KEY>' \
 --data-raw '{
     "query": "Lorem Ipsum...",
     "topK": 5,
     "filters": {
-        "custom_id": "hello_world"
+        "custom_id": "hello_world",
+        "datasource_id": "<datastore_id>",
     }
 }'
 ```
