@@ -17,10 +17,14 @@ authMethod: 'bearer'
   This is the query you want to search for.
 </ParamField>
 
->
-
 <ParamField body="topK" type="number" default={3}>
   This is the maximum number of results you want to return.
+</ParamField>
+
+<ParamField body="filters" type="object">
+  <ParamField body="custom_id" type="string">
+    Filter by Custom ID
+  </ParamField>
 </ParamField>
 
 ### Response
@@ -52,7 +56,10 @@ curl --location --request POST 'https://api.databerry.ai/datastores/query/<datas
 --header 'Authorization: Bearer <API_KEY>' \
 --data-raw '{
     "query": "Lorem Ipsum...",
-    "topK": 5
+    "topK": 5,
+    "filters": {
+        "custom_id": "hello_world"
+    }
 }'
 ```
 

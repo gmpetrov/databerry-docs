@@ -13,12 +13,16 @@ authMethod: 'bearer'
 
 ### Body
 
+<ParamField body="file" type="file" required>
+  File to upload
+</ParamField>
+
 <ParamField body="fileName" type="string">
   File Name
 </ParamField>
 
-<ParamField body="file" type="file" required>
-  File to upload
+<ParamField body="custom_id" type="string">
+  Custom ID: If you want to set a custom ID for the file, you can do it here.
 </ParamField>
 
 ##### Supported mime types
@@ -27,6 +31,7 @@ authMethod: 'bearer'
 - text/plain'
 - text/markdown'
 - application/pdf'
+- application/json'
 - application/vnd.openxmlformats-officedocument.presentationml.presentation
 - application/vnd.openxmlformats-officedocument.wordprocessingml.document
 - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
