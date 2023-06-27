@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Databerry.ai - Connect custom data to large language models",
+  "name": "chaindesk.ai - Connect custom data to large language models",
   "logo": {
     "dark": "/logo/dark.png",
     "light": "/logo/light.png"
@@ -23,11 +23,11 @@
   ],
   "topbarCtaButton": {
     "name": "Get Started",
-    "url": "https://databerry.ai/"
+    "url": "https://chaindesk.ai/"
   },
   "anchors": [
     {
-      "name": "Databerry API",
+      "name": "chaindesk API",
       "icon": "rectangle-terminal",
       "url": "api-reference"
     },
@@ -37,14 +37,14 @@
       "url": "integrations"
     },
     {
-      "name": "Databerry Apps",
+      "name": "chaindesk Apps",
       "icon": "wand-magic-sparkles",
       "url": "apps"
     },
     {
-      "name": "support@databerry.ai",
+      "name": "support@chaindesk.ai",
       "icon": "comment-question",
-      "url": "mailto:support@databerry.ai"
+      "url": "mailto:support@chaindesk.ai"
     }
   ],
   "navigation": [
@@ -53,11 +53,11 @@
       "pages": ["introduction", "platform"]
     },
     {
-      "group": "Databerry API",
+      "group": "chaindesk API",
       "pages": ["api-reference/authentication"]
     },
     {
-      "group": "Databerry Apps",
+      "group": "chaindesk Apps",
       "pages": ["apps/introduction", "apps/chat-site"]
     },
     {

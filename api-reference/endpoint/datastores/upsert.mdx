@@ -1,6 +1,6 @@
 ---
 title: 'Upsert Datasource'
-api: 'POST https://api.databerry.ai/datastores/upsert/{datastoreId}'
+api: 'POST https://api.chaindesk.ai/datastores/upsert/{datastoreId}'
 description: 'This endpoint allows you to add a new Datasource in a Datastore'
 authMethod: 'bearer'
 ---
@@ -44,7 +44,7 @@ The documents you want to upsert.
 <RequestExample>
 
 ```bash Example Request
-curl --location --request POST 'https://api.databerry.ai/datastores/upsert/<datastoreId>' \
+curl --location --request POST 'https://api.chaindesk.ai/datastores/upsert/<datastoreId>' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <API_KEY>' \
 --data-raw '{
