@@ -17,11 +17,45 @@ authMethod: 'bearer'
   This is the query you want to ask your agent.
 </ParamField>
 
->
+<ParamField body="temperature" type="number" min="0.0" max="1.0">
+  Temperature of the model (min 0.0, max 1.0)
+</ParamField>
+
+<ParamField body="conversationId" type="string">
+  ID of the conversation
+</ParamField>
+
+<ParamField body="visitorId" type="string">
+  ID of the participant that's sending the query
+</ParamField>
+
+<ParamField body="filters" type="Filters Object">
+  <Expandable title="properties">
+
+<ParamField body="custom_ids" type="string array">
+  Filter by Custom IDs
+</ParamField>
+
+{' '}
+
+<ParamField body="datasource_ids" type="string array">
+  Filter by Datasource IDs
+</ParamField>
+
+  </Expandable>
+</ParamField>
 
 ### Response
 
-<ResponseField name="answer" type="string"></ResponseField>
+<ResponseField name="answer" type="string">
+  The answer of the agent.
+</ResponseField>
+<ResponseField name="conversationId" type="string">
+  ID of the conversation
+</ResponseField>
+<ResponseField name="visitorId" type="string">
+  ID of the participant that's sending the query
+</ResponseField>
 
 <RequestExample>
 
