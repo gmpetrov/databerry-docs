@@ -1,5 +1,5 @@
 ---
-title: 'Query Agent'
+title: 'Agent - Query'
 api: 'POST https://api.chaindesk.ai/agents/query/{agentId}'
 description: 'This let you query your agent for a specific query.'
 authMethod: 'bearer'
@@ -29,14 +29,16 @@ authMethod: 'bearer'
   ID of the participant that's sending the query
 </ParamField>
 
+<ParamField body="streaming" type="boolean">
+  Enable streaming
+</ParamField>
+
 <ParamField body="filters" type="Filters Object">
   <Expandable title="properties">
 
 <ParamField body="custom_ids" type="string array">
   Filter by Custom IDs
 </ParamField>
-
-{' '}
 
 <ParamField body="datasource_ids" type="string array">
   Filter by Datasource IDs
@@ -56,6 +58,63 @@ authMethod: 'bearer'
 <ResponseField name="visitorId" type="string">
   ID of the participant that's sending the query
 </ResponseField>
+<ResponseField name="sources" type="string">
+  Datasource chunks that were used to generate the answer
+</ResponseField>
+
+### Streaming
+
+##### When streaming is enabled, the endpoint will emit events "answer" (answer of the model) and "endpoint_response" (full response of the endpoint)
+
+```js
+import {
+  EventStreamContentType,
+  fetchEventSource,
+} from '@microsoft/fetch-event-source';
+
+let buffer = '';
+let bufferEndpointResponse = '';
+const ctrl = new AbortController();
+
+await fetchEventSource(queryAgentURL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        signal: ctrl.signal,
+        body: JSON.stringify({
+          streaming: true,
+          query,
+          conversationId,
+          visitorId,
+        }),
+
+        async onopen(response) {
+          if (response.status === 402) {
+            throw new ApiError(ApiErrorType.USAGE_LIMIT);
+          }
+        },
+        onmessage: (event) => {
+          if (event.data === '[DONE]') {
+            // End of stream
+            ctrl.abort();
+
+            try {
+              const { sources, conversationId, visitorId } = JSON.parse(
+                bufferEndpointResponse
+              ) as ChatResponse;
+            } catch {}
+          } else if (event.data?.startsWith('[ERROR]')) {
+            // ...
+          } else if (event.event === "endpoint_response") {
+            bufferEndpointResponse += event.data;
+          } else if (event.event === "answer") {
+            buffer += event.data;
+            // ...
+          }
+       },
+  });
+```
 
 <RequestExample>
 
