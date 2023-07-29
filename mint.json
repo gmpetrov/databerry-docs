@@ -64,10 +64,11 @@
       "group": "Endpoints",
       "pages": [
         "api-reference/endpoint/agents/query",
+        "api-reference/endpoint/datasources/create",
+        "api-reference/endpoint/datasources/delete",
         "api-reference/endpoint/datastores/query",
         "api-reference/endpoint/datastores/upsert",
         "api-reference/endpoint/datastores/update",
-        "api-reference/endpoint/datastores/delete",
         "api-reference/endpoint/datastores/file-upload"
       ]
     },
