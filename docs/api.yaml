@@ -28,8 +28,9 @@ paths:
             schema:
               type: object
               properties:
-                # file:
-                #   type: file
+                file:
+                  type: string
+                  format: binary
                 fileName:
                   type: string
                 type:
