@@ -32,20 +32,6 @@ paths:
       summary: Create a datasource
       requestBody:
         content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                type:
-                  enum: ["web_page", "web_site", "text", "google_drive_file", google_drive_folder]
-                datastoreId:
-                  type: string
-                custom_id:
-                  type: string
-                  description: Useful for multi-tenant setups
-              required:
-                - type
-                - datastoreId
           multipart/form-data:
             schema:
               type: object
@@ -65,6 +51,20 @@ paths:
                 - type
                 - datastoreId
                 - file
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  enum: ["web_page", "web_site", "text", "google_drive_file", google_drive_folder]
+                datastoreId:
+                  type: string
+                custom_id:
+                  type: string
+                  description: Useful for multi-tenant setups
+              required:
+                - type
+                - datastoreId
       responses:
         '200':
           description: Success
