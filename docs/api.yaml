@@ -72,8 +72,6 @@ paths:
           description: Unauthorized
   /datasources/{id}:
     delete:
-      security:
-        - bearerAuth: [] 
       tags:
         - datasources
       summary: Delete a datasource        
