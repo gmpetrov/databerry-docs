@@ -382,6 +382,76 @@ paths:
                 $ref: '#/components/schemas/Datastore'
         '403':
           description: Unauthorized
+  /datastores/query/{id}:
+    post:
+      tags:
+        - datastores
+      summary: This endpoint gets the most similar document fragments for a given query.
+      parameters: 
+        - in: path
+          name: id
+          schema:
+            type: string
+            description: ID of the datastore
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: Query to ask your agent.
+                topK:
+                  type: number
+                  description: The maximum number of results to retrieve.
+                filters:
+                  type: object
+                  properties:
+                    custom_ids:
+                      type: array
+                      description: Filter by Custom IDs
+                      items:
+                        type: string
+                    datasource_ids:
+                      type: array
+                      description: Filter by Datasource IDs
+                      items:
+                        type: string
+                
+              required:
+                - query
+                
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    text:
+                      type: string
+                      description: Text of the document fragment.
+                    score:
+                      type: number
+                      description: Similarity score of the document fragment.
+                    source:
+                      type: string
+                      description: Source url of the document fragment.
+                    datasource_id:
+                      type: string
+                      description: ID of the datasource the document fragment belongs to.
+                    datasource_name:
+                      type: string
+                      description: Name of the datasource the document fragment belongs to.
+        '400':
+          description: Invalid body
+        '403':
+          description: Unauthorized
 components:
   schemas:
     Datasource:
