@@ -40,6 +40,7 @@ paths:
                 custom_id:
                   type: string
                   description: Useful for multi-tenant setups
+
               required:
                 - type
                 - datastoreId
@@ -49,15 +50,37 @@ paths:
               type: object
               properties:
                 type:
-                  enum: ["web_page", "web_site", "text", "google_drive_file", google_drive_folder]
+                  type: ["web_page", "web_site"]
                 datastoreId:
                   type: string
                 custom_id:
                   type: string
                   description: Useful for multi-tenant setups
+                config:
+                  type: object
+                  properties:
+                    source_url:
+                      type: string
+                      format: url
+                      description: web_page, web_site
+                    sitemap:
+                      type: string
+                      format: url
+                      description: web_site
+            
+              # oneOf:
+              #   - $ref: '#/components/schemas/DatasourceWebPage'
+              #   - $ref: '#/components/schemas/DatasourceWebSite'
+              # discriminator:
+              #   propertyName: type
+              #   mappping:
+              #     "web_page": '#/components/schemas/y'
+              #     "web_site": '#/components/schemas/DatasourceWebSite'
+
               required:
                 - type
                 - datastoreId
+                - config
       responses:
         '200':
           description: Success
@@ -524,6 +547,21 @@ components:
           enum: 
             - public
             - private
+    DatasourceConfigWebPage:
+      type: object
+      properties:
+        source_url:
+          type: string
+          format: url
+    DatasourceConfigWebSite:
+      type: object
+      properties:
+        source_url:
+          type: string
+          format: url
+        sitemap:
+          type: string
+          format: url
   securitySchemes:
     bearerAuth:            # arbitrary name for the security scheme
       type: http
