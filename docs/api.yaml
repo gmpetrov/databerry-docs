@@ -50,7 +50,7 @@ paths:
               type: object
               properties:
                 type:
-                  type: ["web_page", "web_site"]
+                  enum: ["web_page", "web_site"]
                 datastoreId:
                   type: string
                 custom_id:
