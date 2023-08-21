@@ -70,3 +70,31 @@ const res = await fetch(`${apiUrl}/datasources`, {
   },
 });
 ```
+
+### Example JS Code to create a Datasource of type 'web_site' with a sitemap
+
+```js
+const apiUrl = 'https://api.chaindesk.ai';
+const apiKey = 'XXX';
+const datastoreId = 'XXX';
+
+const res = await fetch(`${apiUrl}/datasources`, {
+  method: 'POST',
+  body: JSON.stringify({
+    datastoreId,
+    type: 'web_site',
+    name: 'Chaindesk Docs',
+    config: {
+      // Sitemap
+      sitemap: 'https://docs.chaindesk.ai/sitemap.xml',
+
+      // Or Auto Discovery
+      source_url: 'https://docs.databerry.ai',
+    },
+  }),
+  headers: {
+    ContentType: 'application/json',
+    Authorization: `Bearer ${apiKey}`,
+  },
+});
+```
