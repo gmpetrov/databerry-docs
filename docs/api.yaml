@@ -182,6 +182,24 @@ paths:
                 promptTemplate:
                   type: string
                   description: Set the prompt template for this query
+                modelName:
+                  description: Override agent model
+                  enum: 
+                    - gpt_3_5_turbo
+                    - gpt_3_5_turbo_16k
+                    - gpt_4
+                maxTokens:
+                  type: number
+                  description: The maximum number of tokens to generate in the chat completion.
+                presencePenalty:
+                  type: number
+                  description: Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
+                frequencyPenalty:
+                  type: number
+                  description: Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
+                topP:
+                  type: number
+                  description: An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or temperature but not both.
                 filters:
                   type: object
                   properties:
