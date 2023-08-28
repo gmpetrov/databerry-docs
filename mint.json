@@ -32,16 +32,6 @@
       "url": "api-reference"
     },
     {
-      "name": "ChatGPT Plugin",
-      "icon": "puzzle-piece-simple",
-      "url": "integrations"
-    },
-    {
-      "name": "chaindesk Apps",
-      "icon": "wand-magic-sparkles",
-      "url": "apps"
-    },
-    {
       "name": "support@chaindesk.ai",
       "icon": "comment-question",
       "url": "mailto:support@chaindesk.ai"
@@ -55,10 +45,6 @@
     {
       "group": "chaindesk API",
       "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "chaindesk Apps",
-      "pages": ["apps/introduction", "apps/chat-site"]
     },
     {
       "group": "Endpoints",
@@ -81,7 +67,7 @@
     },
     {
       "group": "External Integrations",
-      "pages": ["integrations/chatgpt-plugin", "integrations/langchain"]
+      "pages": ["integrations/langchain"]
     }
   ],
   "footerSocials": {
