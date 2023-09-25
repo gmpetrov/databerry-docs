@@ -315,6 +315,53 @@ paths:
                 $ref: '#/components/schemas/Agent'          
         '403':
           description: Unauthorized
+    patch:
+      tags:
+        - agents
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                modelName:
+                  enum:
+                    - gpt_3_5_turbo
+                    - gpt_3_5_turbo_16k
+                    - gpt_4
+                    - gpt_4_32k
+                temperature:
+                  type: number
+                  description: Temperature of the model (min 0.0, max 1.0)
+                promptType:
+                  description: Set the prompt type for this query
+                  enum: 
+                    - raw
+                    - customer_support
+                promptTemplate:
+                  type: string
+                  description: Set the prompt template for this query
+                visibility:
+                  enum: 
+                    - public
+                    - private
+              required:
+                - description
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Agent'
+        '400':
+          description: Invalid body
+        '403':
+          description: Unauthorized
     delete:
       tags:
         - agents
@@ -397,6 +444,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Datastore'          
+        '403':
+          description: Unauthorized
+    patch:
+      tags:
+        - datastores
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                type:
+                  enum:
+                    - qdrant
+                # visibility:
+                #   enum: 
+                #     - public
+                #     - private
+              required:
+                - description
+                - type
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Datastore'
+        '400':
+          description: Invalid body
         '403':
           description: Unauthorized
     delete:
