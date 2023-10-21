@@ -141,7 +141,7 @@ paths:
                 $ref: '#/components/schemas/Datasource'          
         '403':
           description: Unauthorized
-  /agents/query/{id}:
+  /agents/{id}/query:
     post:
       tags:
         - agents
@@ -504,7 +504,7 @@ paths:
                 $ref: '#/components/schemas/Datastore'
         '403':
           description: Unauthorized
-  /datastores/query/{id}:
+  /datastores/{id}/query:
     post:
       tags:
         - datastores

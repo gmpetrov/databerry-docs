@@ -1,6 +1,6 @@
 ---
 title: 'Agent - Query'
-api: 'POST https://api.chaindesk.ai/agents/query/{agentId}'
+api: 'POST https://api.chaindesk.ai/agents/{agentId}/query'
 description: 'This let you query your agent for a specific query.'
 authMethod: 'bearer'
 ---
@@ -119,7 +119,7 @@ await fetchEventSource(queryAgentURL, {
 <RequestExample>
 
 ```bash Example Request
-curl --location --request POST 'https://api.chaindesk.ai/agents/query/<agentId>' \
+curl --location --request POST 'https://api.chaindesk.ai/agents/<agentId>/query' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <API_KEY>' \
 --data-raw '{
