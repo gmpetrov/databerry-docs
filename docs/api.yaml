@@ -174,14 +174,6 @@ paths:
                 streaming:
                   type: boolean
                   description: Enable streaming
-                promptType:
-                  description: Set the prompt type for this query
-                  enum: 
-                    - raw
-                    - customer_support
-                promptTemplate:
-                  type: string
-                  description: Set the prompt template for this query
                 modelName:
                   description: Override agent model
                   enum: 
@@ -213,7 +205,23 @@ paths:
                       description: Filter by Datasource IDs
                       items:
                         type: string
-                
+                systemPrompt:
+                  description: Agent system prompt
+                  type: string
+                  
+                userPrompt:
+                  description: Agent user prompt
+                  type: string
+                promptType:
+                  deprecated: true
+                  description: (DEPRECATED in favor of systemPrompt and userPrompt) Set the prompt type for this query
+                  enum: 
+                    - raw
+                    - customer_support
+                promptTemplate:
+                  deprecated: true
+                  type: string
+                  description: (DEPRECATED in favor of systemPrompt and userPrompt) Set the prompt template for this query
               required:
                 - query
                 
@@ -265,14 +273,22 @@ paths:
                 temperature:
                   type: number
                   description: Temperature of the model (min 0.0, max 1.0)
+                systemPrompt:
+                  description: Agent system prompt
+                  type: string
+                  
+                userPrompt:
+                  description: Agent user prompt
+                  type: string
+
                 promptType:
-                  description: Set the prompt type for this query
+                  description: (DEPRECATED in favor of systemPrompt and userPrompt) Set the prompt type for this query
                   enum: 
                     - raw
                     - customer_support
                 promptTemplate:
                   type: string
-                  description: Set the prompt template for this query
+                  description: (DEPRECATED in favor of systemPrompt and userPrompt) Set the prompt template for this query
                 visibility:
                   enum: 
                     - public
@@ -337,14 +353,23 @@ paths:
                 temperature:
                   type: number
                   description: Temperature of the model (min 0.0, max 1.0)
+                  
+                systemPrompt:
+                  description: Agent system prompt
+                  type: string
+                  
+                userPrompt:
+                  description: Agent user prompt
+                  type: string
+ 
                 promptType:
-                  description: Set the prompt type for this query
+                  description: (DEPRECATED in favor of systemPrompt and userPrompt) Set the prompt type for this query
                   enum: 
                     - raw
                     - customer_support
                 promptTemplate:
                   type: string
-                  description: Set the prompt template for this query
+                  description: (DEPRECATED in favor of systemPrompt and userPrompt) Set the prompt template for this query
                 visibility:
                   enum: 
                     - public
@@ -618,18 +643,29 @@ components:
         temperature:
           type: number
           description: Temperature of the model (min 0.0, max 1.0)
-        promptType:
-          description: Set the prompt type for this query
-          enum: 
-            - raw
-            - customer_support
-        promptTemplate:
-          type: string
-          description: Set the prompt template for this query
         visibility:
           enum: 
             - public
             - private
+        systemPrompt:
+          description: Agent system prompt
+          type: string
+          
+        userPrompt:
+          description: Agent user prompt
+          type: string
+
+        promptType:
+          deprecated: true
+          description: (DEPRECATED in favor of systemPrompt and userPrompt) Set the prompt type for this query
+          enum: 
+            - raw
+            - customer_support
+        promptTemplate:
+          deprecated: true
+          type: string
+          description: (DEPRECATED in favor of systemPrompt and userPrompt) Set the prompt template for this query
+
     Datastore:
       type: object
       properties:
